@@ -31,6 +31,7 @@
     75% { transform: translateY(-5px) rotate(2deg); }
     100% { transform: translateY(0) rotate(0deg); }
   }
+
 /*----------------------------------------------*/
 
 /*GENERAL*/
@@ -79,6 +80,7 @@
     font-size: 2rem;
       
   }
+
   header ul{
     list-style: none;
     position: absolute;
@@ -98,6 +100,14 @@
     height: 135px;
     width: auto;
 
+  }
+
+  header a{
+    color:rgb(155, 182, 253);
+    
+  }
+  header a:visited{
+    color: white;
   }
 
 
