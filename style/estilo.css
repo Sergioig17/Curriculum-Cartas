@@ -1,320 +1,352 @@
-/*FONTS  Y ANIMACIONES*/
+/* ------------------------------------------------------ */
+/* FONTS Y ANIMACIONES */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
-  .cinzel-decorative-regular {
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 400;
-    font-style: normal;
+.cinzel-decorative-regular {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+}
+
+.cinzel-decorative-bold {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+}
+
+.cinzel-decorative-black {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Bird-Paradyse';
+  src: url(../recursos/fonts/Birds\ of\ Paradise\ ©\ PERSONAL\ USE\ ONLY.ttf);
+}
+
+@keyframes barajarSuave {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(3deg); }
+  50% { transform: translateY(10px) rotate(-3deg); }
+  75% { transform: translateY(-5px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ------------------------------------------------------ */
+/* GENERAL */
+
+:root {
+  --header-height: 9vmax;
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+  background: #888787;
+  color: white;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* ------------------------------------------------------ */
+/* CABECERA */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #000;
+  border-bottom: 1px solid #222;
+  padding: 1em 2em;
+}
+
+/* Imagen izquierda */
+#foto-cara {
+  height: 6vmax;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Título centrado */
+header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Bird-Paradyse", sans-serif;
+  font-size: 2.2rem;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+/* Lista de contacto */
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+header li {
+  color: white;
+  font-size: 0.9rem;
+}
+
+header a {
+  color: rgb(155, 182, 253);
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive header */
+@media (max-width: 700px) {
+  :root {
+    --header-height: 20vmax;
   }
-
-  .cinzel-decorative-bold {
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  .cinzel-decorative-black {
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-
-  @font-face{
-      font-family: 'Bird-Paradyse';
-      src: url(../recursos/fonts/Birds\ of\ Paradise\ ©\ PERSONAL\ USE\ ONLY.ttf);
-  }
-
-  @keyframes barajarSuave {
-    0% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-15px) rotate(3deg); }
-    50% { transform: translateY(10px) rotate(-3deg); }
-    75% { transform: translateY(-5px) rotate(2deg); }
-    100% { transform: translateY(0) rotate(0deg); }
-  }
-
-/*----------------------------------------------*/
-
-/*GENERAL*/
-
-  body {
-    padding: 0%;
-    background: #888787;
-    color: white;
-    font-family: 'Cinzel Decorative', serif;
-
-    justify-content: center;
-  }
-
-  main{
-    margin-top: calc(2rem + 100px);
-  }
-/*----------------------------------------------*/
-
-/*CABECERA*/
 
   header {
-    position:fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    width: 100%;
-    height: 10%;
-    
-    padding: 2em;
-
-    display: flex;
-    justify-content: space-between;
-
-    background-color: #000;
-    border-bottom: 1px solid #000;
-  }
-
-
-/*Estilo texto de la cabecera*/
-  header h1{
-    position: absolute;
-    left: 40%;
-    
-    align-self: center;
-    font-family:"Bird-Paradyse",sans-serif;
-    font-size: 2rem;
-      
-  }
-
-  header ul{
-    list-style: none;
-    position: absolute;
-    top: 3%;
-    right: 8%;
-
-    display: grid;
-    grid-template-columns: repeat(2, 0.1fr);
-    gap:5px;
-    text-align: left;
-  }
-
-  #foto-cara{
-    position: fixed;
-    top: 10px;
-    
-    height: 135px;
-    width: auto;
-
-  }
-
-  header a{
-    color:rgb(155, 182, 253);
-    
-  }
-  header a:visited{
-    color: white;
-  }
-
-
-
-/*----------------------------------------------*/
-
-/*INTERIOR DE LAS CARTAS*/
-  .contenido-carta {
-    display: flex;
-    flex-direction: column; /* apila el título y el texto */
+    flex-direction: column;
     align-items: center;
-    justify-content: center; /* separación entre título y texto */
-    
-    color: white;
-
+    justify-content: center;
+    padding: 1em;
   }
 
-  /* Estilo del título */
-  .contenido-carta h2{
-    margin: 0;
-    border-bottom: 2px solid #aaa; /* línea decorativa opcional */
-    padding-bottom: 0.2rem;
-    margin-bottom: 7%;
-    
-    font-size: 120%;
-    font-weight: 700;
-    
-    background: linear-gradient(360deg, #ffffff, #5f5f5f);
-    background-clip: text;
-    -webkit-background-clip: text; /* Para Chrome/Safari */
-    color: transparent;
-    -webkit-text-fill-color: transparent; /* Para Chrome/Safari */
-
-  }
-  
-  .contenido-carta h3{
-    font-size: 90%;
-    margin: 0;
-    gap: 0;
-
+  header h1 {
+    position: static;
+    transform: none;
+    margin-top: 0.5em;
   }
 
-  /* Estilo del texto */
-  .contenido-carta p {
-    font-size: small;
-    line-height: 1.6;
-    max-width: 90%;
-    text-align: center;
-    margin: 0;
-  }
-  /*Estilo lista*/
-  .contenido-carta ul{
-    margin-top: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  header ul {
     list-style: none;
-    padding: 0;
+    align-items: center;
+    text-align: center;
   }
 
-  
-  .contenido-carta li{
-    font-size: small;
+  #foto-cara {
+    height: 15vmin;
   }
+}
 
-  /*Estilo barra progress*/
-  .contenido-carta progress{
-    appearance: none;
-    border-radius: 9px;
-  } 
-  /*para chrome safari etc*/
-  progress::-webkit-progress-bar {
+/* ------------------------------------------------------ */
+/* INTERIOR DE LAS CARTAS */
+
+.contenido-carta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.contenido-carta h2 {
+  margin: 0 0 7% 0;
+  border-bottom: 2px solid #aaa;
+  padding-bottom: 0.2rem;
+  font-size: 120%;
+  font-weight: 700;
+  background: linear-gradient(360deg, #ffffff, #5f5f5f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.contenido-carta h3 {
+  font-size: 90%;
+  margin: 0;
+}
+
+.contenido-carta p {
+  font-size: small;
+  line-height: 1.6;
+  max-width: 90%;
+  text-align: center;
+  margin: 0;
+}
+
+.contenido-carta ul {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.contenido-carta li {
+  font-size: small;
+}
+
+.contenido-carta progress {
+  appearance: none;
+  border-radius: 9px;
+}
+
+progress::-webkit-progress-bar {
   background-color: #000000;
   border-radius: 9px;
-  }
+}
 
-  progress::-webkit-progress-value {
-    background: linear-gradient(90deg, #424242, #ffffff);
-    border-radius: 9px;
-  }
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #424242, #ffffff);
+  border-radius: 9px;
+}
 
-  /*Firefox*/
-  progress::-moz-progress-bar {
-    background: linear-gradient(90deg, #000000, #424242);
-    border-radius: 9px;
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #000000, #424242);
+  border-radius: 9px;
+}
 
-  }
+/* ------------------------------------------------------ */
+/* TABLAS */
 
-/*----------------------------------------------*/
-/*Tabla*/
-  .contenido-carta table{
-    border-collapse: collapse;
-    width: 80%;
-    margin-top: 10px;
-    align-items: center;
-  }
+.contenido-carta table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 10px;
+  align-items: center;
+}
 
+.contenido-carta td:first-child {
+  text-align: left;
+}
 
-    .contenido-carta td:first-child {
-    text-align: left;
-  }
+.contenido-carta td:last-child {
+  text-align: right;
+}
 
-  .contenido-carta td:last-child {
-    text-align: right;
-  }
-
-  
-/*----------------------------------------------*/
-
-/*BARAJAR BOTON Y TEXTO INFERIOR*/
-
-  #barajar{
+/* ------------------------------------------------------ */
+/* BOTÓN BARAJAR */
+#barajar {
+  display: flex;           
+  flex-direction: column;  
+  align-items: center;      
+  margin-top:var(--header-height)
+}
+@media (max-width: 700px) {
+  #barajar {
     display: flex;
     flex-direction: column;    
-    align-items: center;        
-    justify-content: center;    
-    text-align: center;
-    margin: 2rem auto;          
-    }
-
-    #modo-aleatorio {
-    display: static;
-    margin-top: 2% ;
-    padding: 10px 20px;
-    background: #111;
-
-    color: white;
-    border: 1px solid #555;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Cinzel Decorative', serif;
+    align-items: center;       
+    margin-top: calc(var(--header-height) + 6vmax); 
   }
-/*----------------------------------------------*/
+}
 
-/*POSICION CARTAS*/
-  section {
-    display: flex;
-  }
 
+
+
+#modo-aleatorio {
+  display: flex;
+  padding: 10px 20px;
+  background: #111;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', serif;
+  transition: background 0.3s;
+}
+
+#modo-aleatorio:hover {
+  background: #333;
+}
+
+/* ------------------------------------------------------ */
+/* POSICIÓN CARTAS */
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.grupo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Responsive cartas */
+@media (max-width: 900px) {
   .grupo {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 20px; /* separación entre cartas */
-    justify-items: center; /* centra las cartas horizontalmente */
-    align-items: center;   /* centra verticalmente */
+    grid-template-columns: repeat(2, 1fr);
   }
-/*--------------------------------------------------*/
+}
 
+@media (max-width: 600px) {
+  .grupo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------ */
 /* CARTAS */
-  .carta {
-    width: 350px;
-    height: 460px;
-    position: relative;
-    cursor: pointer;
-    margin: 9%;
-    
-  }
 
-  /* Ambas caras */
-  .frente, .detras {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5%;
-    backface-visibility: hidden;
-    transition: transform 1s;
-    box-sizing: border-box;
-  }
+.carta {
+  width: 350px;
+  height: 460px;
+  position: relative;
+  cursor: pointer;
+  margin: 9%;
+}
 
-  /* Imagen frontal */
-  .frente img {
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-    border-radius: 3%;
-  }
+.frente,
+.detras {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  backface-visibility: hidden;
+  transition: transform 1s;
+  box-sizing: border-box;
+}
 
-  /* Cara trasera (el texto) */
-  .detras {
-    background: linear-gradient(145deg, #333, #111);
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    text-align: center;
-    
-  }
+.frente img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 3%;
+}
 
-/*--------------------------------------------------*/
-/*GIRO*/
+.detras {
+  background: linear-gradient(145deg, #333, #111);
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  text-align: center;
+}
 
-  /* Cuando se gira */
-  .carta.girada .frente {
-    transform: rotateY(180deg);
-  }
-  .carta.girada .detras {
-    transform: rotateY(360deg);
-  }
+/* ------------------------------------------------------ */
+/* GIRO Y ANIMACIONES */
 
-  /*Animacion de barajar*/
-  .carta.barajando {
-    animation: barajarSuave 0.6s ease-in-out;
-  }
-  .grupo.fade {
-    opacity: 0;
-    transition: opacity 0.7s ease;
-  }
+.carta.girada .frente {
+  transform: rotateY(180deg);
+}
+
+.carta.girada .detras {
+  transform: rotateY(360deg);
+}
+
+.carta.barajando {
+  animation: barajarSuave 0.6s ease-in-out;
+}
+
+.grupo.fade {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
 
 /*--------------------------------------------------*/
